@@ -1,3 +1,9 @@
+/*
+TP N°2 
+Alumno: Tomas Medina N° de legajo:119088/9
+Comision: 3
+*/
+
 PImage fondo1, fondo2, fondo3, fondo4, obra1, obra2, obra3, obra4;
 
 PFont fuente;
@@ -71,8 +77,8 @@ void draw() {
       estado++;
       contador=0;
     }
-  }//estado1
-  //pantalla 2
+  }
+  //PANTALLA 2
   else if (estado==2) {
     image (fondo2, 0, 0, width, height);
     image (obra2, 100, 20, 450, 300);
@@ -90,9 +96,7 @@ void draw() {
       estado++;
       contador=0;
     }
-//estado 2
-
-//pantalla 3
+//PANTALLA 3
   else if (estado==3) {
     image (fondo3, 0, 0, width, height);
     image (obra3, 100, 20, 450, 300);
@@ -104,28 +108,47 @@ void draw() {
     contador++;
     if (contador>=200) {
       estado++;
-      contador=0;
-    
-    
+      contador=0; 
     }
-    print("posY=" + posY);
+    print("posY=" + posX);
     print("contador=" + contador);
     }
+//PANTALLA 4
     else if (estado ==4) {
-    image (fondo4, 0, 0, width, height);
+      image (fondo4, 0, 0, width, height);
     image (obra4, 100, 20, 450, 300);
+    textFont(fuente);
+    textAlign(LEFT);
+    textSize(15);
+    text(texto3, posX , posY , 500, 350);
+    posX = posX + velocidad;
+    if (posX>100) {
+      posX = 100;
     }
-      
-    
+    //BOTON VOLVER
+   if ( mouseX>560 && mouseX<560+70 && mouseY >50 && mouseY<50+40 ) {
+      fill(255, 160, 100);
+    } else {
+      fill(200);
+    }
 
+    rect( 560, 50, 70, 40);
+    fill(0);
+    text("VOLVER", 570, 75);
+    fill(255, 160, 100);
+    }
+    }
     
-  
-    
-    
-    
-    
-    
-  
-  
-   
-}//draw
+void mousePressed() {
+//BOTON VOLVER
+ if (estado==4) {
+    if (mouseX>560 && mouseX<560+70
+      && mouseY >50 && mouseY<50+40) {
+      estado = 1;
+    }
+ }
+ else {
+    estado++;
+    contador = 0;
+   }   
+}
