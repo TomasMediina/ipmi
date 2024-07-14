@@ -1,8 +1,8 @@
 /*
-TP N°2 
+TP N°3
 Alumno: Tomas Medina N° de legajo:119088/9
 Comision: 3
-Link del video: https://youtu.be/QoOwHhgmobU 
+Link del video: https://www.youtube.com/watch?v=tPH5d3sZ8aw
 */
 
 PImage obra;
@@ -10,13 +10,11 @@ PImage obra;
 int cantX;
 int cantY;
 
-float r1;
-float r2;
-float r3;
 float circulo1;
 float circulo2;
 float circulo3;
 boolean resetCuadrados = false;
+
 
 void setup() {
 
@@ -32,10 +30,6 @@ void setup() {
   circulo2 = 255;
   circulo3 = 255;
   
-  // EMPEZAR CON CUADRADOS NEGROS
-  r1 = 0;
-  r2 = 0;
-  r3 = 0;
 }
 
 void draw() {
@@ -55,11 +49,10 @@ void draw() {
         fill(0);
       }
       else if(dist(mouseX, mouseY, x + 20, y + 20) < 100) {
-        r1 = random(255);
-        r2 = random(255);
-        r3 = random(255);
-        fill(r1, r2, r3);
+
+        fill (colorAleatorio());
         rect(x, y, 40, 40);
+        
       }
 
       // CIRCULOS
@@ -112,4 +105,10 @@ void keyPressed() {
     resetCuadrados();
     
   }
+
+}
+color colorAleatorio () {
+
+return color (random(255), random (255), random(255) );  
+
 }
